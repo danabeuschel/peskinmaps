@@ -112,7 +112,7 @@ def get_neighborhood_character(lots_with_zoning, height=10):
     lots_with_zoning = lots_with_zoning.merge(lot_hgt, how='left', on='lot_id')
     drop_index(lots_with_zoning)
 
-    lots_with_zoning['neighborhood_character'] = abs(lots_with_zoning['height'] - lots_with_zoning['block_height']) > height
+    lots_with_zoning['neighborhood_character'] = abs(lots_with_zoning['height'] - lots_with_zoning['block_height']) <= height
     print('phew, got neighborhood character')
 
     # also encase neighborhood character in amber
